@@ -40,7 +40,14 @@
       <th>Expires on</th>
     </tr>
 
-    <%=  %>
+    <% @the_board.posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%= post.created_at %></td>
+        <td><%= post.expires_on %></td>
+      </tr>
+    <% end %>
 
 
   </table>
