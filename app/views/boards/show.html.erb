@@ -1,71 +1,45 @@
 <div>
-  <div>
-    <h1>
-      Board #<%= @the_board.id %> details
-    </h1>
+  <h1>
+    <%= @the_board.name %>
+  </h1>
 
+  <hr>
+    
+  <h2>Add a new post</h2>
+
+  <form action="/insert_post" method="post">
     <div>
-      <div>
-        <a href="/boards">
-          Go back
-        </a>
-      </div>
+      <label for="title_box">Title</label>
 
-      <div>
-        <a href="/delete_board/<%= @the_board.id %>">
-          Delete board
-        </a>
-      </div>
+      <input type="text" id="title_box" name="query_title">
+    </div>
+    <div>
+      <label for="body_box">Body</label>
+
+      <textarea rows="3"></textarea>
+    </div>
+    <div>
+      <label for="expires_on_box">Expires on</label>
+
+      <input type="date" id="expires_on_box" name="query_expires_on">
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_board.name %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_board.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_board.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
+    <button>Add post</button>
 </div>
 
 <hr>
-
 
 <div>
-  <div>
-    <h2>
-      Edit board
-    </h2>
+  <h2>Active posts</h2>
 
-    <form action="/modify_board/<%= @the_board.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
+  <table border="1">
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Posted on</th>
+      <th>Expires on</th>
+    </tr>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_board.name %>">
-      </div>
 
-      <button>
-        Update board
-      </button>
-    </form>
-  </div>
+  </table>
 </div>
-
-<hr>
